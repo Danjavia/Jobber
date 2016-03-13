@@ -19,22 +19,36 @@ export default class Login extends Component {
 	render () {
 		return (
 			<View style={ styles.container }>
+			
+				<Image source={ require( './img.jpg' ) } style={ styles.backgroundImage } resizeMode={ Image.resizeMode.cover } />
+				
 				<View>
+
+					<TextInput
+						style={ styles.input }
+						value={ this.state.email }
+						onChangeText={ ( email ) => this.setState({ email: email }) }
+						placeholder={ 'Enter your email' }
+						maxLength={ 50 }
+						keyboardType="email-address"
+						multiline={ false }
+						/>
+
 					<TextInput
 						style={styles.input}
 						value={this.state.username}
-						onChangeText={(text) => this.setState({username: text})}
-						placeholder={'Enter User Nickname'}
-						maxLength={12}
+						onChangeText={ (text) => this.setState({ username: text }) }
+						placeholder={ 'Enter User Nickname' }
+						maxLength={ 15 }
 						multiline={false}
 						/>
 			 
 					<TouchableHighlight
-						style={styles.button}
-						underlayColor={'#328FE6'}
+						style={ styles.button }
+						underlayColor={ '#4CAF50' }
 						onPress={ this.onPress.bind( this ) }
 						>
-						<Text>LOGIN</Text>
+						<Text style={{ color: '#fefefe' }}>LOGIN</Text>
 					</TouchableHighlight>
 				</View>
 			</View>
@@ -47,8 +61,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'stretch',
-		backgroundColor: 'teal'
+		backgroundColor: '#fefefe',
 	},
+	backgroundImage: {
+	    flex: 1,
+		width: null,
+		height: null,
+  	},
 	loginContainer: {
 		flex: 1,
 		justifyContent: 'center',
@@ -56,14 +75,15 @@ const styles = StyleSheet.create({
 	},
 	input: {
 		width: 250,
-		color: '#555555',
+		color: '#4a4a4a',
+		fontSize: 18,
 		padding: 10,
 		height: 50,
-		borderColor: '#32C5E6',
+		borderColor: '#fefefe',
 		borderWidth: 1,
-		borderRadius: 4,
+		borderRadius: 10,
 		alignSelf: 'center',
-		backgroundColor: '#ffffff'
+		marginTop: 15 
 	},
 	button: {
 		width: 250,
@@ -72,10 +92,10 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		borderWidth: 1,
 		borderRadius: 5,
-		borderColor: '#328FE6',
+		borderColor: '#4CAF50',
 		padding: 10,
-		marginTop: 10,
-		backgroundColor: '#32c5e6'
+		marginTop: 20,
+		backgroundColor: '#388E3C'
 	},
 	label: {
 		flex: 1,
